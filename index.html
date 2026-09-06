@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>Windows Translation Troubleshooting Handbook</title>
+  <meta name="description" content="A practical handbook for diagnosing Windows translation software download, installation, proxy, WebView2, OCR and document failures.">
+  <style>
+    :root{color-scheme:light;--ink:#172033;--muted:#5a6477;--accent:#2457d6;--line:#dfe5ef;--panel:#f5f8fc}
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);line-height:1.65;background:#fff}
+    header{background:linear-gradient(135deg,#152550,#2457d6);color:#fff;padding:4rem 1.25rem}header div,main,footer{max-width:940px;margin:auto}
+    h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.08;margin:0 0 1rem}h2{margin-top:2.4rem}p{max-width:75ch}.lead{font-size:1.2rem;color:#e7edff}
+    main{padding:2.5rem 1.25rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}.card{border:1px solid var(--line);border-radius:14px;padding:1.25rem;background:var(--panel)}
+    a{color:var(--accent)}code{background:#edf1f7;padding:.1rem .35rem;border-radius:4px}footer{padding:2rem 1.25rem 3rem;color:var(--muted);border-top:1px solid var(--line)}
+  </style>
+</head>
+<body>
+  <header><div><p>Independent Windows support reference</p><h1>Diagnose translation software by failure stage</h1><p class="lead">Separate download, installation, startup, network, embedded-browser, OCR and document problems before changing the system.</p></div></header>
+  <main>
+    <h2>Start with the symptom, not a reinstall</h2>
+    <p>First record what still works. A successful home-screen launch does not prove that the installer host, sign-in service, document-upload endpoint, OCR service or translation API is reachable. Use a short sentence and a small redacted file so each layer can be tested independently.</p>
+    <div class="grid">
+      <section class="card"><h2>Download and install</h2><p>Inspect the browser download record, file size, publisher signature, Windows security prompt, disk space and permissions.</p><p><a href="installation-troubleshooting.html">Open installation checks</a></p></section>
+      <section class="card"><h2>Network and proxy</h2><p>Compare a direct connection with the configured proxy, confirm time and certificates, and isolate sign-in from translation traffic.</p><p><a href="network-troubleshooting.html">Open network checks</a></p></section>
+      <section class="card"><h2>WebView2 and startup</h2><p>A blank sign-in panel can be an embedded-browser runtime problem even when the main executable launches normally.</p><p><a href="https://trans-youdao.com/youdao-windows-not-opening/">See a detailed Windows startup reference</a></p></section>
+      <section class="card"><h2>Documents and OCR</h2><p>Test one page, identify whether the PDF has selectable text, verify page rotation and language, then compare reading order and output.</p><p><a href="https://trans-youdao.com/youdao-windows-how-to-use/">Review a desktop translation workflow</a></p></section>
+    </div>
+    <h2>Evidence worth preserving</h2>
+    <ul><li>Application and Windows versions</li><li>Exact error text and timestamp</li><li>Installer filename, size and signature result</li><li>Whether plain text, image OCR and document upload fail separately</li><li>Proxy or VPN state and the result of one permitted alternative network</li></ul>
+    <p>Change only one setting per test. Avoid registry cleaners, random DLL downloads, certificate bypasses and blanket firewall disabling; these steps destroy useful evidence and can create a larger security problem.</p>
+  </main>
+  <footer>This independent handbook is not a software vendor or official support channel. Confirm current product requirements with the publisher.</footer>
+</body>
+</html>
+
